@@ -3,35 +3,6 @@
 <head>
   <title>Sustainable Agriculture Planner</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <style>
-    #pdf-viewer {
-      width: 100%;
-      height: 600px;
-    }
-  </style>
-  <script src="build/pdf.js"></script>
-  <script src="build/pdf.worker.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var url = 'yourfile.pdf';
-      var pdfViewer = document.getElementById('pdf-viewer');
-
-      pdfjsLib.getDocument(url).promise.then(function(pdfDoc) {
-        pdfDoc.getPage(1).then(function(page) {
-          var canvas = document.createElement('canvas');
-          var context = canvas.getContext('2d');
-          canvas.style.display = 'block';
-          canvas.style.margin = '0 auto';
-          var viewport = page.getViewport({ scale: 1 });
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-          page.render({ canvasContext: context, viewport: viewport }).promise.then(function() {
-            pdfViewer.appendChild(canvas);
-          });
-        });
-      });
-    });
-  </script>
 </head>
 <body>
   <header>
@@ -50,7 +21,8 @@
   </header>
 
   <main>
-    <div id="pdf-viewer"></div>
+    
+    <embed src="yourfile.pdf" width="100%" height="600px" type="application/pdf" toolbar="false">
   </main>
 
   <footer>
